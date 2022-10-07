@@ -1,9 +1,9 @@
 import 'package:adf_album_da_copa/app/core/ui/helpers/loader.dart';
 import 'package:adf_album_da_copa/app/core/ui/helpers/messages.dart';
 import 'package:adf_album_da_copa/app/core/ui/styles/button_styles.dart';
+import 'package:adf_album_da_copa/app/core/ui/styles/colors_app.dart';
 import 'package:adf_album_da_copa/app/core/ui/styles/text_styles.dart';
 import 'package:adf_album_da_copa/app/core/ui/widgets/button.dart';
-import 'package:adf_album_da_copa/app/core/ui/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -18,63 +18,48 @@ class _SplashPageState extends State<SplashPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      appBar: AppBar(
-        title: const Text('Splash Page'),
-      ),
-      body: Center(
-        child: Column(
+      backgroundColor: context.colors.primary,
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/background_splash.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Stack(
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyles.i.yellowButton,
-              child: const Text('Salvar'),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .08),
+                child: Image.asset(
+                  'assets/images/fifa_logo.png',
+                  height: MediaQuery.of(context).size.height * .25,
+                ),
+              ),
             ),
-            OutlinedButton(
-              onPressed: () {},
-              style: ButtonStyles.i.yellowOutlineButton,
-              child: const Text('Salvar'),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height * .19),
+                child: Button(
+                  width: MediaQuery.of(context).size.width * .9,
+                  onPressed: () {},
+                  style: context.buttonStyles.yellowButton,
+                  labelStyle:
+                      context.textStyles.textSecondaryFontExtraBoldPrimaryColor,
+                  label: 'Acessar',
+                ),
+              ),
             ),
-            OutlinedButton(
-              onPressed: () {
-                showSuccess('SUCCEEESSSS');
-              },
-              style: ButtonStyles.i.primaryButton,
-              child: const Text('Sucesso'),
-            ),
-            OutlinedButton(
-              onPressed: () {
-                showError('Erro no botão outLine');
-              },
-              style: ButtonStyles.i.primaryOutlineButton,
-              child: const Text('Erro'),
-            ),
-            const TextField(),
-            Button(
-              onPressed: () async {
-                showLoader();
-                await Future.delayed(const Duration(seconds: 4));
-                hideLoader();
-              },
-              style: ButtonStyles.i.primaryButton,
-              labelStyle: context.textStyles.textPrimaryFontBold,
-              label: 'Show Loader',
-            ),
-            Button.primary(
-              onPressed: () {
-                showInfo('infoo info');
-              },
-              width: MediaQuery.of(context).size.width * .8,
-              height: 30,
-              label: 'Info',
-            ),
-            RoundedButton(
-              icon: Icons.add,
-              onPressed: () async {
-                showLoader();
-                await Future.delayed(const Duration(seconds: 4));
-                hideLoader();
-              },
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Image.asset('assets/images/bandeiras.png'),
+              ),
             ),
           ],
         ),
