@@ -15,7 +15,7 @@ class AlbumApp extends StatelessWidget {
       theme: ThemeConfig.theme,
       routes: {
         '/': (_) => SplashRoute(),
-        '/auth//login': (_) => const LoginPage(),
+        '/auth/login': (_) => const LoginPage(),
         '/home': (_) => const HomePage(),
       },
     );
