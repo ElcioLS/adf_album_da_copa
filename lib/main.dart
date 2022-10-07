@@ -1,6 +1,8 @@
 import 'package:adf_album_da_copa/app/album_app.dart';
+import 'package:adf_album_da_copa/app/core/config/env/env.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  await Env.i.load();
   runApp(const AlbumApp());
 }
