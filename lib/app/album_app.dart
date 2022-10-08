@@ -1,4 +1,6 @@
 import 'package:adf_album_da_copa/app/core/rest/custom_dio.dart';
+import 'package:adf_album_da_copa/app/core/ui/global/global_context.dart';
+import 'package:adf_album_da_copa/app/core/ui/global/global_context_impl.dart';
 import 'package:adf_album_da_copa/app/core/ui/theme/theme_config.dart';
 import 'package:adf_album_da_copa/app/pages/auth/login/login_route.dart';
 import 'package:adf_album_da_copa/app/pages/auth/register/register_route.dart';
@@ -10,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class AlbumApp extends StatelessWidget {
-  const AlbumApp({Key? key}) : super(key: key);
+  final navigatorKey = GlobalKey<NavigatorState>();
+
+  AlbumApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +22,13 @@ class AlbumApp extends StatelessWidget {
       bindingsBuilder: () => [
         Bind.lazySingleton<CustomDio>((i) => CustomDio()),
         Bind.lazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i())),
+        Bind.lazySingleton<GlobalContext>((i) =>
+            GlobalContextImpl(navigatorKey: navigatorKey, authRepository: i())),
       ],
       child: MaterialApp(
         title: 'Album de Figurinhas da Copa do Catar 2022',
         debugShowCheckedModeBanner: false,
+        navigatorKey: navigatorKey,
         theme: ThemeConfig.theme,
         routes: {
           '/': (_) => SplashRoute(),
