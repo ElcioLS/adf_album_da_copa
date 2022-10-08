@@ -67,8 +67,13 @@ class TextStyles {
   TextStyle get textSecondaryFontExtraBoldPrimaryColor =>
       textSecondaryFontExtraBold.copyWith(color: ColorsApp.i.primary);
 
-  TextStyle get titleWite => textPrimaryFontBold.copyWith(
+  TextStyle get titleWhite => textPrimaryFontBold.copyWith(
         color: Colors.white,
+        fontSize: 22,
+      );
+
+  TextStyle get titleBlack => textPrimaryFontBold.copyWith(
+        color: Colors.black,
         fontSize: 22,
       );
 }

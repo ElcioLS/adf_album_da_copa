@@ -49,7 +49,7 @@ class Button extends StatelessWidget {
               style: style,
               child: labelText,
             )
-          : OutlinedButton(
+          : ElevatedButton(
               onPressed: onPressed,
               style: style,
               child: labelText,
