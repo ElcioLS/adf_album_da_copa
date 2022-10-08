@@ -1,6 +1,6 @@
 import 'package:adf_album_da_copa/app/core/rest/custom_dio.dart';
 import 'package:adf_album_da_copa/app/core/ui/theme/theme_config.dart';
-import 'package:adf_album_da_copa/app/pages/auth/login/login_page.dart';
+import 'package:adf_album_da_copa/app/pages/auth/login/login_route.dart';
 import 'package:adf_album_da_copa/app/pages/auth/register/register_route.dart';
 import 'package:adf_album_da_copa/app/pages/home/home_page.dart';
 import 'package:adf_album_da_copa/app/pages/splash/splash_route.dart';
@@ -25,7 +25,7 @@ class AlbumApp extends StatelessWidget {
         theme: ThemeConfig.theme,
         routes: {
           '/': (_) => SplashRoute(),
-          '/auth/login': (_) => const LoginPage(),
+          '/auth/login': (_) => const LoginRoute(),
           '/auth/register': (_) => const RegisterRoute(),
           '/home': (_) => const HomePage(),
         },

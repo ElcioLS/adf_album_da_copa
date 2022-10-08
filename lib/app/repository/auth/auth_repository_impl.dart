@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:adf_album_da_copa/app/core/exceptions/repository_exception.dart';
+import 'package:adf_album_da_copa/app/core/exceptions/unauthorized_exception.dart';
 import 'package:adf_album_da_copa/app/core/rest/custom_dio.dart';
 import 'package:adf_album_da_copa/app/models/register_user_model.dart';
 import 'package:dio/dio.dart';
@@ -13,8 +14,28 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({required this.dio});
 
   @override
-  Future<String> login({required String email, required String password}) {
-    throw UnimplementedError();
+  Future<String> login(
+      {required String email, required String password}) async {
+    try {
+      final result = await dio.post('/api/auth', data: {
+        'email': email,
+        'password': password,
+      });
+
+      final accessToken = result.data['access_token'];
+
+      if (accessToken == null) {
+        throw UnauthorizedException();
+      }
+
+      return accessToken;
+    } on DioError catch (e, s) {
+      log('Erro ao realizar login', error: e, stackTrace: s);
+      if (e.response?.statusCode == 401) {
+        throw UnauthorizedException();
+      }
+      throw RepositoryException(message: 'Erro ao realizar login');
+    }
   }
 
   @override
