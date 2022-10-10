@@ -1,12 +1,20 @@
+import 'package:adf_album_da_copa/app/pages/my_stickers/presenter/my_stickers_presenter.dart';
+import 'package:adf_album_da_copa/app/pages/my_stickers/view/my_stickers_view_impl.dart';
 import 'package:adf_album_da_copa/app/pages/my_stickers/widgets/stickers_group.dart';
 import 'package:adf_album_da_copa/app/pages/my_stickers/widgets/stickers_group_filter.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/stickers_status_filter.dart';
 
-class MyStickersPage extends StatelessWidget {
-  const MyStickersPage({super.key});
+class MyStickersPage extends StatefulWidget {
+  final MyStickersPresenter presenter;
+  const MyStickersPage({super.key, required this.presenter});
 
+  @override
+  State<MyStickersPage> createState() => _MyStickersPageState();
+}
+
+class _MyStickersPageState extends MyStickersViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,22 +25,33 @@ class MyStickersPage extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: Column(
-              children: const [
-                StickerStatusFilter(filterSelected: ''),
-                StickerGroupFilter(),
+              children: [
+                StickerStatusFilter(filterSelected: statusFilter),
+                StickerGroupFilter(countries: countries),
               ],
             ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return const StickersGroup();
+                final group = album[index];
+                return StickersGroup(
+                  group: group,
+                  statusFilter: statusFilter,
+                );
               },
-              childCount: 1,
+              childCount: album.length,
             ),
           ),
         ],
       ),
     );
   }
+
+  // @override
+  // void updateStatusFilter(status) {
+  //   setState(() {
+  //     statusFilter = status;
+  //   });
+  // }
 }

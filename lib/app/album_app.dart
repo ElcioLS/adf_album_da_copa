@@ -5,7 +5,7 @@ import 'package:adf_album_da_copa/app/core/ui/theme/theme_config.dart';
 import 'package:adf_album_da_copa/app/pages/auth/login/login_route.dart';
 import 'package:adf_album_da_copa/app/pages/auth/register/register_route.dart';
 import 'package:adf_album_da_copa/app/pages/home/home_route.dart';
-import 'package:adf_album_da_copa/app/pages/my_stickers/my_stickers_page.dart';
+import 'package:adf_album_da_copa/app/pages/my_stickers/my_stickers_route.dart';
 import 'package:adf_album_da_copa/app/pages/splash/splash_route.dart';
 import 'package:adf_album_da_copa/app/repository/auth/auth_repository.dart';
 import 'package:adf_album_da_copa/app/repository/auth/auth_repository_impl.dart';
@@ -36,7 +36,7 @@ class AlbumApp extends StatelessWidget {
           '/auth/login': (_) => const LoginRoute(),
           '/auth/register': (_) => const RegisterRoute(),
           '/home': (_) => const HomeRoute(),
-          '/my-stickers': (_) => const MyStickersPage(),
+          '/my-stickers': (_) => const MyStickersRoute(),
         },
       ),
     );
