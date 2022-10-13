@@ -3,7 +3,7 @@ import 'package:adf_album_da_copa/app/pages/my_stickers/presenter/my_stickers_pr
 import 'package:adf_album_da_copa/app/pages/my_stickers/presenter/my_stickers_presenter_impl.dart';
 import 'package:adf_album_da_copa/app/repository/stickers/stickers_repository.dart';
 import 'package:adf_album_da_copa/app/repository/stickers/stickers_repository_impl.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class MyStickersRoute extends FlutterGetItPageRoute {

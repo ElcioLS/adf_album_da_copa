@@ -3,7 +3,7 @@ import 'package:adf_album_da_copa/app/pages/home/presenter/home_presenter.dart';
 import 'package:adf_album_da_copa/app/pages/home/presenter/home_presenter_impl.dart';
 import 'package:adf_album_da_copa/app/repository/user/user_repository.dart';
 import 'package:adf_album_da_copa/app/repository/user/user_repository_impl.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class HomeRoute extends FlutterGetItPageRoute {

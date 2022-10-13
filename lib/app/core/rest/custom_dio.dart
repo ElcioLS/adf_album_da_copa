@@ -1,5 +1,5 @@
 import 'package:adf_album_da_copa/app/core/config/env/env.dart';
-import 'package:adf_album_da_copa/app/core/rest/interceptor/auth_interceptor.dart';
+import 'package:adf_album_da_copa/app/core/rest/interceptors/auth_interceptor.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
 
@@ -13,7 +13,7 @@ class CustomDio extends DioForNative {
           receiveTimeout: 60000,
         )) {
     interceptors.add(LogInterceptor(
-        requestBody: true, responseBody: true, responseHeader: true));
+        requestBody: true, responseBody: true, requestHeader: true));
   }
 
   CustomDio auth() {

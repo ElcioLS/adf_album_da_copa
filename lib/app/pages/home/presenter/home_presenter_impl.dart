@@ -20,7 +20,7 @@ class HomePresenterImpl implements HomePresenter {
       final user = await userRepository.getMe();
       _view.updateUser(user);
     } catch (e) {
-      _view.error('Erro ao buscar dados do usuário');
+      _view.error('Erro ao buscar dados do usuario');
     }
   }
 

@@ -22,13 +22,14 @@ class GlobalContextImpl implements GlobalContext {
     final sp = await SharedPreferences.getInstance();
     sp.clear();
     showTopSnackBar(
-        navigatorKey.currentState!.context,
-        CustomSnackBar.error(
-          message: 'Login Expirado',
-          backgroundColor: ColorsApp.i.primary,
-        ),
-        overlayState: navigatorKey.currentState!.overlay);
+      navigatorKey.currentState!.context,
+      CustomSnackBar.error(
+        message: 'Login Expirado',
+        backgroundColor: ColorsApp.i.primary,
+      ),
+      overlayState: navigatorKey.currentState!.overlay,
+    );
     navigatorKey.currentState!
-        .pushNamedAndRemoveUntil('/auth/ap', (route) => false);
+        .pushNamedAndRemoveUntil('/auth/login', (route) => false);
   }
 }

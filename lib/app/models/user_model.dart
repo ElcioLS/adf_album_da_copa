@@ -27,17 +27,17 @@ class UserModel {
       'id': id,
       'name': name,
       'email': email,
-      'totalAlbum': totalAlbum,
-      'totalStickers': totalStickers,
-      'totalDuplicates': totalDuplicates,
-      'totalComplete': totalComplete,
-      'totalCompletePercent': totalCompletePercent,
+      'total_album': totalAlbum,
+      'total_stickers': totalStickers,
+      'total_duplicates': totalDuplicates,
+      'total_complete': totalComplete,
+      'total_complete_percent': totalCompletePercent,
     };
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      id: map['id'] ?? '',
+      id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       totalAlbum: map['total_album']?.toInt() ?? 0,

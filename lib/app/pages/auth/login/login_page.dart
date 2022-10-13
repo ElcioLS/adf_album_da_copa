@@ -19,8 +19,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends LoginViewImpl {
   final formKey = GlobalKey<FormState>();
-  final emailEC = TextEditingController();
-  final passwordEC = TextEditingController();
+  final emailEC =
+      TextEditingController(text: 'rodrigorahman@academiadoflutter.com.br');
+  final passwordEC = TextEditingController(text: '123123');
 
   @override
   void dispose() {

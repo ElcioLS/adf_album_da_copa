@@ -1,7 +1,8 @@
-import 'package:adf_album_da_copa/app/core/ui/global/global_context.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../ui/global/global_context.dart';
 
 class AuthInterceptor extends Interceptor {
   @override

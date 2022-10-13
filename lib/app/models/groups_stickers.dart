@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'user_sticker_model.dart';
@@ -42,7 +41,7 @@ class GroupsStickers {
       stickersStart: map['stickers_start']?.toInt() ?? 0,
       stickersEnd: map['stickers_end']?.toInt() ?? 0,
       stickers: List<UserStickerModel>.from(
-        (map['stickers'] as List<int>).map<UserStickerModel>(
+        (map['stickers'] as List).map<UserStickerModel>(
           (x) => UserStickerModel.fromMap(x as Map<String, dynamic>),
         ),
       ),

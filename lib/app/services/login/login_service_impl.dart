@@ -13,6 +13,6 @@ class LoginServiceImpl implements LoginService {
     final accessToken =
         await authRepository.login(email: email, password: password);
     final sp = await SharedPreferences.getInstance();
-    sp.setString('AccessToken', accessToken);
+    sp.setString('accessToken', accessToken);
   }
 }
