@@ -28,11 +28,11 @@ class StickerModel {
 
   factory StickerModel.fromMap(Map<String, dynamic> map) {
     return StickerModel(
-      id: map['id'] as int,
-      stickerCode: map['sticker_code'] as String,
-      stickerName: map['sticker_name'] as String,
-      stickerNumber: map['sticker_number'] as String,
-      stickerImage: map['sticker_image'] as String,
+      id: map['id']?.toInt() ?? 0,
+      stickerCode: map['sticker_code'] ?? '',
+      stickerName: map['sticker_name'] ?? '',
+      stickerNumber: map['sticker_number'] ?? '',
+      stickerImage: map['sticker_image'] ?? '',
     );
   }
 

@@ -10,4 +10,12 @@ abstract class StickerDetailPresenter
     required String countryName,
     UserStickerModel? stickerUser,
   });
+
+  void incrementAmount();
+
+  void decrementAmount();
+
+  Future<void> saveSticker();
+
+  Future<void> deleteSticker();
 }

@@ -47,7 +47,7 @@ class _StickerDetailPageState extends StickerDetailViewImpl {
                 const Spacer(),
                 RoundedButton(
                   icon: Icons.remove,
-                  onPressed: () {},
+                  onPressed: widget.presenter.decrementAmount,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -58,7 +58,7 @@ class _StickerDetailPageState extends StickerDetailViewImpl {
                 ),
                 RoundedButton(
                   icon: Icons.add,
-                  onPressed: () {},
+                  onPressed: widget.presenter.incrementAmount,
                 ),
               ],
             ),
@@ -71,12 +71,12 @@ class _StickerDetailPageState extends StickerDetailViewImpl {
               ),
             ),
             Button.primary(
-              label: 'Adicionar figurinha',
-              onPressed: () {},
+              label: hasSticker ? 'Atualizar figurinha' : 'Adicionar figurinha',
+              onPressed: widget.presenter.saveSticker,
               width: MediaQuery.of(context).size.width * .9,
             ),
             Button(
-              onPressed: () {},
+              onPressed: widget.presenter.deleteSticker,
               label: 'Excluir figurinha',
               outline: true,
               style: context.buttonStyles.primaryOutlineButton,

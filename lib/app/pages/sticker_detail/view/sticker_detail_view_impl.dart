@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 abstract class StickerDetailViewImpl extends State<StickerDetailPage>
     with Messages<StickerDetailPage>, Loader<StickerDetailPage>
     implements StickerDetailView {
-  bool hasSticker = false;
+  bool hasSticker = true;
   String countryCode = '';
   String stickerNumber = '';
   String countryName = '';
@@ -52,5 +52,24 @@ abstract class StickerDetailViewImpl extends State<StickerDetailPage>
       this.countryName = countryName;
       this.amount = amount;
     });
+  }
+
+  @override
+  void updateAmount(int amount) {
+    setState(() {
+      this.amount = amount;
+    });
+  }
+
+  @override
+  void saveSuccess() {
+    hideLoader();
+    Navigator.of(context).pop();
+  }
+
+  @override
+  void error(String message) {
+    hideLoader();
+    showError(message);
   }
 }
