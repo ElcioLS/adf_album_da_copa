@@ -2,7 +2,9 @@ import 'package:adf_album_da_copa/app/core/ui/styles/colors_app.dart';
 import 'package:adf_album_da_copa/app/core/ui/styles/text_styles.dart';
 import 'package:adf_album_da_copa/app/models/groups_stickers.dart';
 import 'package:adf_album_da_copa/app/models/user_sticker_model.dart';
+import 'package:adf_album_da_copa/app/pages/my_stickers/presenter/my_stickers_presenter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 
 class StickersGroup extends StatelessWidget {
   final GroupsStickers group;
@@ -104,13 +106,16 @@ class Sticker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.of(context).pushNamed('/sticker-detail', arguments: {
+      onTap: () async {
+        final presenter = context.get<MyStickersPresenter>();
+
+        await Navigator.of(context).pushNamed('/sticker-detail', arguments: {
           'countryCode': countrycode,
           'stickerNumber': stickerNumber,
           'countryName': countryName,
           'stickerUser': sticker,
         });
+        presenter.refresh();
       },
       child: Container(
         color: sticker != null ? context.colors.primary : context.colors.grey,
