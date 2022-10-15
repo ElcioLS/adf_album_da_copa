@@ -1,16 +1,25 @@
 # adf_album_da_copa
 
-A new Flutter project.
+Projeto realizado durante a edição DartWeek8 de Setembro de 2022.
+Uma criação de Rodrigo Rahman da Academia do Flutter.
 
-## Getting Started
+Nesse projeto podemos aprender muito sobre o uso do Flutter GetIT e SetState, Arquitetura MVP e muito mais.
 
-This project is a starting point for a Flutter application.
+Minha configuração no momento de desenvolvivemnto foi:
 
-A few resources to get you started if this is your first Flutter project:
+Flutter Version: 3.3.4
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Packages: Pubspec.yaml
+environment:
+  sdk: '>=2.18.1 <3.0.0'
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+dependencies:
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.6
+  flutter_dotenv: ^5.0.2
+  flutter_getit: ^1.2.1
+  loading_animation_widget: ^1.2.0+3
+  top_snackbar_flutter: ^2.1.1
+  validatorless: ^1.2.1
+  shared_preferences: ^2.0.15
+  flutter_awesome_select: ^6.5.0
