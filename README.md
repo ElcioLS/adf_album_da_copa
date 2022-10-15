@@ -1,4 +1,4 @@
-# adf_album_da_copa
+# Academia do Flutter - Álbum de figurinhas da copa do mundo do Catar 2022
 
 Projeto realizado durante a edição DartWeek8 de Setembro de 2022.
 Uma criação de Rodrigo Rahman da Academia do Flutter.
